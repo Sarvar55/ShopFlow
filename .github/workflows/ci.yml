@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore -c Release
+
+      # Integration tests start PostgreSQL and Redis with Testcontainers (Docker is available on the runner).
+      - name: Test
+        run: dotnet test --no-build -c Release --logger "trx" --results-directory TestResults
+
+      - name: Docker image builds
+        run: docker build -t shopflow-api:ci .
