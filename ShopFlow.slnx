@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ShopFlow.Api/ShopFlow.Api.csproj" />
+    <Project Path="src/ShopFlow.Application/ShopFlow.Application.csproj" />
+    <Project Path="src/ShopFlow.Domain/ShopFlow.Domain.csproj" />
+    <Project Path="src/ShopFlow.Infrastructure/ShopFlow.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/ShopFlow.IntegrationTests/ShopFlow.IntegrationTests.csproj" />
+    <Project Path="tests/ShopFlow.UnitTests/ShopFlow.UnitTests.csproj" />
+  </Folder>
+</Solution>
